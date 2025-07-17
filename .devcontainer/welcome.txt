@@ -1,0 +1,46 @@
+🦌 Welcome to the Moose Tutorial Codespace!
+==========================================
+
+Your Moose development environment is starting up...
+
+🚀 Quick Start Commands:
+------------------------
+• View streaming logs:    npm run tutorial:logs
+• Generate test data:     npm run tutorial:generate-data  
+• Stop the server:        npm run tutorial:stop
+• Restart the server:     npm run tutorial:start
+
+📚 Tutorial Files (open in editor):
+-----------------------------------
+1. app/ingest/models.ts       - Data models and pipeline definitions
+2. app/ingest/transforms.ts   - Stream transformations with caching
+3. app/views/barAggregated.ts - Analytics materialized views
+4. app/apis/bar.ts            - REST API endpoints
+
+🔗 Service URLs:
+----------------
+• Moose API:        http://localhost:4000
+• Management API:   http://localhost:5001
+• ClickHouse:       http://localhost:18123
+• Redpanda Console: http://localhost:8080 (if available)
+
+📖 Tutorial Steps:
+------------------
+1. Explore the data models in app/ingest/models.ts
+2. Understand transformations in app/ingest/transforms.ts
+3. Generate test data: npm run tutorial:generate-data
+4. Query the API: curl http://localhost:4000/consumption/barAggregated
+5. Modify the pipeline and see changes in real-time!
+
+💡 Tips:
+--------
+• The dev server auto-reloads when you save files
+• Use Redis caching to prevent duplicate processing
+• Check dead letter queues for failed transformations
+• View all available Moose commands: npm run moose -- help
+
+Need help? 
+• Documentation: https://docs.moosejs.com
+• Community Slack: https://join.slack.com/t/moose-community/shared_invite/zt-2fjh5n3wz-cnOmM9Xe9DYAgQrNu8xKxg
+
+Happy data engineering! 🚀

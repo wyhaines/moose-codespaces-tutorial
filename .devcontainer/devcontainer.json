@@ -6,26 +6,58 @@
       "version": "latest"
     }
   },
-  "postCreateCommand": [
-    "bash -i <(curl -fsSL https://fiveonefour.com/install.sh) moose",
-    "npm install"
-  ],
+  "postCreateCommand": "bash .devcontainer/startup.sh",
+  "postAttachCommand": "cat .devcontainer/welcome.txt",
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-vscode.vscode-typescript-next",
         "redhat.vscode-yaml",
-        "ms-azuretools.vscode-docker",
-        "alexkrechik.cucumberautocomplete",
-        "swagger-api.swagger-editor-preview"
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "files.exclude": {
+          "node_modules": true,
+          "dist": true
+        }
+      }
+    },
+    "codespaces": {
+      "openFiles": [
+        "README.md",
+        "app/ingest/models.ts",
+        "app/ingest/transforms.ts"
       ]
     }
   },
   "portsAttributes": {
     "4000": {
-      "label": "Moose API Port",
-      "onAutoForward": "notify"
+      "label": "Moose API",
+      "onAutoForward": "notify",
+      "visibility": "public"
+    },
+    "5001": {
+      "label": "Moose Management",
+      "onAutoForward": "silent"
+    },
+    "18123": {
+      "label": "ClickHouse",
+      "onAutoForward": "silent"
+    },
+    "19092": {
+      "label": "Redpanda",
+      "onAutoForward": "silent"
+    },
+    "6379": {
+      "label": "Redis",
+      "onAutoForward": "silent"
+    },
+    "7233": {
+      "label": "Temporal",
+      "onAutoForward": "silent"
     }
   },
-  "forwardPorts": [4000]
+  "forwardPorts": [4000, 5001],
+  "waitFor": "postCreateCommand"
 }

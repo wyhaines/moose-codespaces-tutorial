@@ -7,6 +7,7 @@
     }
   },
   "postCreateCommand": "bash .devcontainer/startup.sh",
+  "postStartCommand": "bash .devcontainer/startup.sh",
   "postAttachCommand": "cat .devcontainer/welcome.txt",
   "customizations": {
     "vscode": {

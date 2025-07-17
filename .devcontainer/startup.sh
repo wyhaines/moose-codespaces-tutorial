@@ -5,19 +5,29 @@ echo "🦌 Setting up Moose Tutorial Environment..."
 echo "============================================"
 
 # Ensure we're in the right directory
-cd /workspace
+cd /workspaces/moose-codespaces-tutorial || cd /workspace || { echo "❌ Could not find workspace directory"; exit 1; }
+
+# Check if Moose is already installed and running
+if command -v moose-cli &> /dev/null && curl -s -o /dev/null -w "%{http_code}" http://localhost:4000/health 2>/dev/null | grep -q "200"; then
+    echo "✅ Moose is already installed and running!"
+    echo "📖 The tutorial files should be open in the editor"
+    echo "🌐 Moose API is available at: http://localhost:4000"
+    exit 0
+fi
 
 # Ensure npm packages are installed
 echo "📦 Installing npm dependencies..."
 npm install
 
-# Install Moose CLI globally
-echo "📦 Installing Moose CLI globally..."
-npm install -g @514labs/moose-cli
+# Install Moose CLI globally if not already installed
+if ! command -v moose-cli &> /dev/null; then
+    echo "📦 Installing Moose CLI globally..."
+    npm install -g @514labs/moose-cli
+fi
 
 # Verify installation
 echo "✅ Verifying Moose CLI installation..."
-moose --version || { echo "❌ Moose CLI installation failed"; exit 1; }
+moose-cli --version || { echo "❌ Moose CLI installation failed"; exit 1; }
 
 # Start the dev server
 echo "🚀 Starting Moose dev server..."

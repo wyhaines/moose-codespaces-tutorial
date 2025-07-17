@@ -5,10 +5,11 @@ Your Moose development environment is starting up...
 
 🚀 Quick Start Commands:
 ------------------------
-• View streaming logs:    npm run tutorial:logs
+• View logs:              npm run tutorial:logs
 • Generate test data:     npm run tutorial:generate-data  
-• Stop the server:        npm run tutorial:stop
+• Stop & clean:           npm run tutorial:stop
 • Restart the server:     npm run tutorial:start
+• Check status:           npm run tutorial:status
 
 📚 Tutorial Files (open in editor):
 -----------------------------------

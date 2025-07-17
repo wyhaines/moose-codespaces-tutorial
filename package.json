@@ -6,10 +6,10 @@
     "build": "moose-cli build --docker",
     "dev": "moose-cli dev",
     "tutorial:start": "moose-cli dev",
-    "tutorial:logs": "moose-cli logs streaming",
+    "tutorial:logs": "moose-cli logs",
     "tutorial:generate-data": "moose-cli workflow run generateRandom",
-    "tutorial:stop": "moose-cli stop",
-    "tutorial:status": "moose-cli ls",
+    "tutorial:stop": "moose-cli clean",
+    "tutorial:status": "moose-cli ps",
     "tutorial:query": "curl -s http://localhost:4000/consumption/barAggregated | jq ."
   },
   "dependencies": {
